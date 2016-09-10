@@ -10,6 +10,7 @@ const config = {
     path: buildPath,
     filename: 'bundle.js'
   },
+  devtool: 'source-map',
   module: {
     loaders: [
       {

@@ -1,7 +1,7 @@
 //bubble chart JSX
 
 import React from 'react';
-import ReactBubbleChart from 'react-bubble-chart';
+import SpecialBubbleChart from 'react-bubble-chart';
 
 const colorLegend = [         //COLOR SCALE EXAMPLE - WILL UPDATE
   // reds from dark to light
@@ -34,7 +34,7 @@ function getID() {
 }
                                
 export default ({ data }) =>
-  <ReactBubbleChart
+  <SpecialBubbleChart
     colorLegend={colorLegend}          //this renders everything black if undefined
     legend={false}                     //if true, create and show a legend based on the passed colors
     selectedColor="#737373"            //for when bubble is 'selected'

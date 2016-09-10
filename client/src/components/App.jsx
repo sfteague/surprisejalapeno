@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import Search from './Search.jsx';
 // import ArticleEntry from './ArticleEntry.jsx';
 import Geosuggest from 'react-geosuggest';
-import BubbleChart from './BubbleChart.jsx';  //adding BubbleChart
+import SpecialBubbleChart from './BubbleChart.jsx';  //adding BubbleChart
 
 // FOR TESTING // 
 var dummyData = [
@@ -92,7 +92,7 @@ class App extends React.Component {
           <Search props={this.props} handleSearchChange={this.handleSearchChange} handleSearchSubmit={this.handleSearchSubmit} handleSuggestionSelect={this.handleSuggestionSelect} />
         </section>
         <section>
-          <BubbleChart data={this.state.data} />
+          <SpecialBubbleChart data={this.state.data} />
         </section>
       </div>
     );
