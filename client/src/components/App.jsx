@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NewsView from './NewsView.jsx';
+// import NewsView from './NewsView.jsx';
 import Search from './Search.jsx';
 import ArticleEntry from './ArticleEntry.jsx';
 import Geosuggest from 'react-geosuggest';
+import BubbleChart from './BubbleChart.jsx';  //adding BubbleChart
 
 // FOR TESTING // 
 // var dummyData = [
@@ -88,6 +89,15 @@ class App extends React.Component {
     })
   }
 
+//electionInsights has:
+  //componentDidMount
+  //componentWillUnmount
+  //_getStateObj
+//... all three above use InsightsStore, which is using Dispatcher from Flux
+//... ok to bring in flux?
+
+
+//replaced NewsView with BubbleChart, below
   render() {
     return (
       <div>
@@ -95,7 +105,7 @@ class App extends React.Component {
           <Search props={this.props} handleSearchChange={this.handleSearchChange} handleSearchSubmit={this.handleSearchSubmit} handleSuggestionSelect={this.handleSuggestionSelect} />
         </section>
         <section>
-          <NewsView props={this.props} data={this.state.data} />
+          <BubbleChart data={this.state.data} />
         </section>
       </div>
     );
