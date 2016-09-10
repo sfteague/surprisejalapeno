@@ -94,7 +94,7 @@ class App extends React.Component {
   //componentWillUnmount
   //_getStateObj
 //... all three above use InsightsStore, which is using Dispatcher from Flux
-//... ok to bring in flux?
+//... ok/need to bring in flux?
 
 
 //replaced NewsView with BubbleChart, below

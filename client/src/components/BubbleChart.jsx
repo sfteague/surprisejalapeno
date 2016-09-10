@@ -35,7 +35,7 @@ export default ({ data }) =>
     selectedColor="#737373"            //for when bubble is 'selected'
     selectedTextColor="#d9d9d9"        //for when bubble is 'selected'
     fixedDomain={{min: -1, max: 1}}    //works with color legend - see react-bubble-chart docs
-    onClick={}                   //NEED TO SET CLICK HANDLER HERE
+    onClick={}                   //NEED TO SET CLICK HANDLER HERE FOR OPENING NEWS URL
     data={data.map(d => ({
       _id: d._id,                 //string, unique id (required) --> we didn't have this before React
       value: d.rating,            //number, to determine relative size of bubbles (required)
