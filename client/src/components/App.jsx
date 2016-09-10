@@ -82,10 +82,10 @@ class App extends React.Component {
         this.setState({data: data.value});
         // plug data into D3:
         // either inside react app or send to new page w/ D3
-      },
+      },  //need to .bind(this)  here??
       error: (err) => {
         console.log('getNews err ', err);
-      }
+      }   //need to .bind(this)  here too??
     })
   }
 
