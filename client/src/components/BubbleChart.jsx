@@ -2,7 +2,6 @@
 
 import React from 'react';
 import ReactBubbleChart from 'react-bubble-chart';
-import App from './App.jsx';
 
 const colorLegend = [         //COLOR SCALE EXAMPLE - WILL UPDATE
   // reds from dark to light
@@ -27,6 +26,12 @@ const colorLegend = [         //COLOR SCALE EXAMPLE - WILL UPDATE
   {color: "#08306b", textColor: '#deebf7', text: 'Positive'}
 ];
 
+var idCounter = 0;
+function getID() {
+  idCounter++;
+  var stringID = idCounter.toString();
+  return stringID;  
+}
                                
 export default ({ data }) =>
   <ReactBubbleChart
@@ -35,17 +40,17 @@ export default ({ data }) =>
     selectedColor="#737373"            //for when bubble is 'selected'
     selectedTextColor="#d9d9d9"        //for when bubble is 'selected'
     fixedDomain={{min: -1, max: 1}}    //works with color legend - see react-bubble-chart docs
-    onClick={}                   //NEED TO SET CLICK HANDLER HERE FOR OPENING NEWS URL
+                             //NEED TO SET CLICK HANDLER HERE FOR OPENING NEWS URL:  onClick={}
     data={data.map(d => ({
-      _id: d._id,                 //string, unique id (required) --> we didn't have this before React
-      value: d.rating,            //number, to determine relative size of bubbles (required)
-      colorValue: d.newsCategory, //number, used to determine color
-      selected: d.selected,       //boolean, uses selectedColor above for bubble if true
-      url: d.url                  //string, url for the article
+      _id: getID(), //string, unique id (required) --> we didn't have this before React
+      value: d.rating,             //number, to determine relative size of bubbles (required)
+      colorValue: d.newsCategory,  //number, used to determine color
+      selected: d.selected,        //boolean, uses selectedColor above for bubble if true
+      url: d.url,                  //string, url for the article
+      displayText: d.storyName
     }))}
   />
 
-//I think story objects should now include {_id, storyname: x, newsCategory: x, rating: x, url: x}
 //Here are the data formats that react-bubble-chart is set up to receive:
 /*
 

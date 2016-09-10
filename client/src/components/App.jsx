@@ -2,34 +2,31 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import NewsView from './NewsView.jsx';
 import Search from './Search.jsx';
-import ArticleEntry from './ArticleEntry.jsx';
+// import ArticleEntry from './ArticleEntry.jsx';
 import Geosuggest from 'react-geosuggest';
 import BubbleChart from './BubbleChart.jsx';  //adding BubbleChart
 
 // FOR TESTING // 
-// var dummyData = [
-//   {
-//     title: "Naked Donald Trump statue appears in San Francisco",
-//     url: 'http://www.cnn.com/videos/us/2016/08/19/naked-donald-trump-statue-in-san-francisco-dnt.kron',
-//     relatedLocation: 'San Francisco',
-//     hotnessRating: 18,
-//     topic: 'Presidential Election'
-//   },
-//   {
-//     title: "Santa Clara Police Union Threatens Boycott of 49ers Games Over",
-//     url: 'http://www.nbcbayarea.com/news/local/Santa-Clara-Police-Officers-Association-May-Boycott-Working-49ers-Games-392214541.html',
-//     relatedLocation: 'San Francisco',
-//     hotnessRating: 17,
-//     topic: 'Sports'
-//   },
-//   {
-//     title: "15 SEA SCOUTS RESCUED AFTER BOATS FLIPS IN SAN FRANCISCO BAY",
-//     url: 'http://abc7news.com/news/15-sea-scouts-rescued-after-boats-flips-in-san-francisco-bay-/1498260/',
-//     relatedLocation: 'San Francisco',
-//     hotnessRating: 8,
-//     topic: 'Boating'
-//   }
-// ];
+var dummyData = [
+  {
+    storyName: "example storyname 1",
+    newsCategory: "example category",
+    rating: 22,
+    url: "https://www.google.com/"
+  },
+  {
+    storyName: "example storyname 1",
+    newsCategory: "example category",
+    rating: 22,
+    url: "https://www.google.com/"
+  },
+  {
+    storyName: "example storyname 1",
+    newsCategory: "example category",
+    rating: 22,
+    url: "https://www.google.com/"
+  }
+];
 
 class App extends React.Component {
   constructor(props) {
@@ -37,7 +34,7 @@ class App extends React.Component {
 
     this.state = {
       location: '',
-      data: []
+      data: dummyData    //remember to change back to empty array after done using dummy data
     };
 
     this.handleSearchChange = this.handleSearchChange.bind(this);
@@ -80,22 +77,12 @@ class App extends React.Component {
       success: (data) => {
         data = JSON.parse(data);
         this.setState({data: data.value});
-        // plug data into D3:
-        // either inside react app or send to new page w/ D3
       },  //need to .bind(this)  here??
       error: (err) => {
         console.log('getNews err ', err);
       }   //need to .bind(this)  here too??
     })
   }
-
-//electionInsights has:
-  //componentDidMount
-  //componentWillUnmount
-  //_getStateObj
-//... all three above use InsightsStore, which is using Dispatcher from Flux
-//... ok/need to bring in flux?
-
 
 //replaced NewsView with BubbleChart, below
   render() {
