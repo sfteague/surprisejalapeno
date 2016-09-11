@@ -3,7 +3,7 @@ module.exports = function gruntFun(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     env: {
       dev: {
-        PORT: 3000,
+        PORT: 3000
       },
     },
 

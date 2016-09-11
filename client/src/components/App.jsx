@@ -1,27 +1,61 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import NewsView from './NewsView.jsx';
 import Search from './Search.jsx';
-// import ArticleEntry from './ArticleEntry.jsx';
 import Geosuggest from 'react-geosuggest';
-import BubbleChart from './BubbleChart.jsx';  //adding BubbleChart
+import BubbleChart from './BubbleChart.jsx';  
 
-// FOR TESTING // 
+// EXAMPLE FOR TESTING // 
 var dummyData = [
   {
     storyName: "example storyname 1",
-    newsCategory: 0.5,
+    newsCategory: -0.5,
     rating: 15,
     url: "https://www.google.com/"
   },
   {
-    storyName: "example storyname 1",
+    storyName: "example storyname 2",
     newsCategory: 0.7,
-    rating: 10,
+    rating: 9,
     url: "https://www.google.com/"
   },
   {
-    storyName: "example storyname 1",
+    storyName: "example storyname 3",
+    newsCategory: -1,
+    rating: 30,
+    url: "https://www.google.com/"
+  },
+  {
+    storyName: "example storyname 4",
+    newsCategory: -0.5,
+    rating: 15,
+    url: "https://www.google.com/"
+  },
+  {
+    storyName: "example storyname 5",
+    newsCategory: 0.7,
+    rating: 9,
+    url: "https://www.google.com/"
+  },
+  {
+    storyName: "example storyname 6",
+    newsCategory: 1,
+    rating: 30,
+    url: "https://www.google.com/"
+  },
+  {
+    storyName: "example storyname 7",
+    newsCategory: -0.5,
+    rating: 22,
+    url: "https://www.google.com/"
+  },
+  {
+    storyName: "example storyname 8",
+    newsCategory: 0.7,
+    rating: 13,
+    url: "https://www.google.com/"
+  },
+  {
+    storyName: "example storyname 9",
     newsCategory: 1,
     rating: 30,
     url: "https://www.google.com/"
@@ -34,7 +68,8 @@ class App extends React.Component {
 
     this.state = {
       location: '',
-      data: dummyData    //remember to change back to empty array after done using dummy data
+      data: dummyData,    //remember to change back to empty array after done using dummy data
+      numBubbles: dummyData.length
     };
 
     this.handleSearchChange = this.handleSearchChange.bind(this);
@@ -77,14 +112,13 @@ class App extends React.Component {
       success: (data) => {
         data = JSON.parse(data);
         this.setState({data: data.value});
-      },  //need to .bind(this)  here??
+      },  
       error: (err) => {
         console.log('getNews err ', err);
-      }   //need to .bind(this)  here too??
+      }   
     })
   }
 
-//replaced NewsView with BubbleChart, below
   render() {
     return (
       <div>
