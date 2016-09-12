@@ -7,9 +7,26 @@
   font-family: 'Catamaran', sans-serif;
 }
 
+.topBar {
+  height: 50px;
+  background-color: black;
+  z-index: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.topText {
+  color: white;
+  font-size: 2em;
+  z-index: 100;
+  margin: 0 auto 0 8px;
+  position: relative;
+  display: inline-block;
+}
+
 .bubble-chart-d3 {
-  height: 80%;
-  width: 80%;
+  height: 60%;
+  width: 60%;
   margin: 0 auto;
   padding: 0;
   display: flex;
@@ -161,4 +178,13 @@ text {
 .geosuggest-item--active:hover,
 .geosuggest-item--active:focus {
   background: #ccc;
+}
+
+/*---slogan adjust---*/
+.slogan {
+  color: red;
+}
+
+.cta {
+  color: red;
 }

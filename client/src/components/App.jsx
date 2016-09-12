@@ -8,56 +8,82 @@ import BubbleChart from './BubbleChart.jsx';
 var dummyData = [
   {
     storyName: "example storyname 1",
-    newsCategory: -0.5,
-    rating: 15,
     url: "https://www.google.com/"
   },
   {
     storyName: "example storyname 2",
-    newsCategory: 0.7,
-    rating: 9,
     url: "https://www.google.com/"
   },
   {
     storyName: "example storyname 3",
-    newsCategory: -1,
-    rating: 30,
     url: "https://www.google.com/"
   },
   {
     storyName: "example storyname 4",
-    newsCategory: -0.5,
-    rating: 15,
     url: "https://www.google.com/"
   },
   {
     storyName: "example storyname 5",
-    newsCategory: 0.7,
-    rating: 9,
     url: "https://www.google.com/"
   },
   {
     storyName: "example storyname 6",
-    newsCategory: 1,
-    rating: 30,
     url: "https://www.google.com/"
   },
   {
     storyName: "example storyname 7",
-    newsCategory: -0.5,
-    rating: 22,
     url: "https://www.google.com/"
   },
   {
     storyName: "example storyname 8",
-    newsCategory: 0.7,
-    rating: 13,
     url: "https://www.google.com/"
   },
   {
     storyName: "example storyname 9",
-    newsCategory: 1,
-    rating: 30,
+    url: "https://www.google.com/"
+  },
+  {
+    storyName: "example storyname 1",
+    url: "https://www.google.com/"
+  },
+  {
+    storyName: "example storyname 2",
+    url: "https://www.google.com/"
+  },
+  {
+    storyName: "example storyname 3",
+    url: "https://www.google.com/"
+  },
+  {
+    storyName: "example storyname 4",
+    url: "https://www.google.com/"
+  },
+  {
+    storyName: "example storyname 5",
+    url: "https://www.google.com/"
+  },
+  {
+    storyName: "example storyname 6",
+    url: "https://www.google.com/"
+  },
+  {
+    storyName: "example storyname 7",
+    url: "https://www.google.com/"
+  },
+  {
+    storyName: "example storyname 8",
+    url: "https://www.google.com/"
+  },
+  {
+    storyName: "example storyname 9",
+    url: "https://www.google.com/"
+  },
+  {
+    storyName: "example storyname 6",
+    url: "https://www.google.com/"
+  },
+  {
+    storyName: "example storyname 7",
     url: "https://www.google.com/"
   }
 ];
@@ -112,8 +138,31 @@ class App extends React.Component {
       data: {q: loc},
       success: (data) => {
         data = JSON.parse(data);
-        this.setState({data: data.value});
-      },
+        data = dummyData; //FOR TESTING - NEED TO REMOVE THIS LINE
+        
+        //to assign a random category (will come from db later)
+        var getCategory = function() {
+          return Math.floor(Math.random() * 4);
+        }
+        
+        //to assign a random rating (will come from db later)
+        var getRating = function () {
+          var ratings = [4, 6, 8, 10, 11, 8, 20];
+          var rating = ratings[ Math.floor(Math.random() * ratings.length) ];
+          return rating;
+        }
+
+        //iterate through story objects and assign random category
+        data.forEach(function(storyObj) {
+          var cat = getCategory();
+          var rating = getRating();
+          storyObj.newsCategory = cat;
+          storyObj.rating = rating;
+        });
+        
+        this.setState({data: data}); //changed from data.value
+      },  
+
       error: (err) => {
         console.log('getNews err ', err);
       }

@@ -4,6 +4,7 @@ module.exports = function gruntFun(grunt) {
     env: {
       dev: {
         PORT: 3000,
+        bing: '996452bb54394f88a7defb2b4b174334'
       },
     },
 
