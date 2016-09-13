@@ -132,7 +132,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    //////////////////
+    ////////start testing//////////
     //to assign a random category (will come from db later)
     var getCategory = function() {
       return Math.floor(Math.random() * 4);
@@ -154,7 +154,7 @@ class App extends React.Component {
       storyObj.newsCategory = category1;
       storyObj.rating = rating;
     });
-    //////////////////
+    ///////end testing///////////
 
     this.state = {
       location: '',
