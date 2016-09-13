@@ -1,7 +1,6 @@
 /***************** MAIN ******************/
-/*my add*/
 
-* { /*my add*/
+* {
   outline: none;
   box-sizing: border-box;
   font-family: 'Catamaran', sans-serif;
@@ -178,13 +177,4 @@ text {
 .geosuggest-item--active:hover,
 .geosuggest-item--active:focus {
   background: #ccc;
-}
-
-/*---slogan adjust---*/
-.slogan {
-  color: red;
-}
-
-.cta {
-  color: red;
 }

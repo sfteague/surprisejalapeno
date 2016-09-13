@@ -32,7 +32,7 @@ function getID() {
   var stringID = idCounter.toString();
   return stringID;  
 }
-                               
+
 export default ({ data, handleClick }) =>
   <ReactBubbleChart
     colorLegend={colorLegend}          //this renders everything black if undefined
@@ -40,7 +40,6 @@ export default ({ data, handleClick }) =>
     selectedColor="#737373"            //for when bubble is 'selected'
     selectedTextColor="#d9d9d9"        //for when bubble is 'selected'
     fixedDomain={{min: 0, max: 3}}    //works with color legend - see react-bubble-chart docs
-    
     onClick={handleClick}                         //NEED TO SET CLICK HANDLER HERE FOR OPENING NEWS URL:  onClick={}
     data={data.map(d => ({
       _id: getID(), //string, unique id (required) --> we didn't have this before React

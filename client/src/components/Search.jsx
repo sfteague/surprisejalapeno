@@ -3,8 +3,8 @@ import Geosuggest from 'react-geosuggest';
 
 const Search = (props) => (
   <div>
-    <h2 class="bug1">Enter a location to see the top 20 news stories in your area!</h2>
-    <h2 class="bug2">Find news in:</h2>
+    <h2>Enter a location to see the top 20 news stories in your area!</h2>
+    <h2>Find news in:</h2>
     <Geosuggest
       placeholder="San Francisco"
       onSuggestSelect={props.handleSuggestionSelect}
